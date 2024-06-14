@@ -1,35 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import "../src/main/App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Import Route and our components
+import { Route, Routes } from "react-router-dom";
+import Currencies from "../src/components/Currencies";
+import Main from "../src/components/Main";
+import Price from "../src/pages/Price";
 
+export default function App () {
+  // We will use the Route component, path attribute, and element attribute to specify each route.
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Main/>}/>
+        <Route path="/currencies" element={<Currencies/>}/>
+        <Route path="/price" element={<Price/>}/>
+      </Routes>
+    </div>
+  );
 }
-
-export default App
